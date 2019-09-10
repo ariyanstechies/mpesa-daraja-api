@@ -1,4 +1,4 @@
-# Access token
+
 from django.conf import settings
 
 import requests
@@ -26,10 +26,11 @@ class B2C:
             "ConfirmationURL": "[https://363791ad.ngrok.io]",
             "ValidationURL": "[https://363791ad.ngrok.io]"
         }
-        r = requests.post(register_url, data=body, headers=headers)
+        r = requests.post(register_url, json=body, headers=headers)
 
         return r
-
+        
+    
     def payment_request(self, access_token):
         payment_request_url = settings.PAYMENT_URL
         headers = {
@@ -40,16 +41,16 @@ class B2C:
             "InitiatorName": settings.INITIATOR_NAME,
             "SecurityCredential": settings.INITIATOR_SECURITY_CREDENTIAL,
             "CommandID": "SalaryPayment",
-            "Amount": "1000",
+            "Amount": "100",
             "PartyA": settings.PARTY_A,
             "PartyB": "254792799958",
             "Remarks": "Salary from Hairways",
-            "QueueTimeOutURL": "https://363791ad.ngrok.io" ,
-            "ResultURL": "https://363791ad.ngrok.io",
+            "QueueTimeOutURL": "https://593652c3.ngrok.io" ,
+            "ResultURL": "https://593652c3.ngrok.io/api/b2c_results",
             "Occassion": ""
         }
-        print(headers, body)
-        r = requests.post(payment_request_url, data=body, headers=headers)
+        # print(headers, body)
+        r = requests.post(payment_request_url, json=body, headers=headers)
         return r 
 
 
