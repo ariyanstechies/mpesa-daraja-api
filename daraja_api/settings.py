@@ -21,6 +21,8 @@ PAYMENT_URL = os.getenv('PAYMENT_URL')
 INITIATOR_NAME = os.getenv('INITIATOR_NAME')
 INITIATOR_SECURITY_CREDENTIAL = os.getenv('INITIATOR_SECURITY_CREDENTIAL')
 PARTY_A  = os.getenv('PARTY_A')
+PARTY_B  = os.getenv('PARTY_B')
+HOST_ADDRESS = os.getenv('HOST_ADDRESS')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
